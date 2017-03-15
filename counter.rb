@@ -13,14 +13,16 @@ class Counter < Sinatra::Base
 
   post '/:counter_name/increment' do
     {
+      name: params["counter_name"],
       value: redis.incr(params["counter_name"])
-    }
+    }.to_json
   end
 
   post '/:counter_name/decrement' do
     {
+      name: params["counter_name"],
       value: redis.decr(params["counter_name"])
-    }
+    }.to_json
   end
 
   def redis
