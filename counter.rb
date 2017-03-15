@@ -1,5 +1,6 @@
 require 'bundler/setup'
 require 'sinatra/base'
+require 'redis'
 
 class Counter < Sinatra::Base
 
